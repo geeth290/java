@@ -1,0 +1,29 @@
+package com.klef.jfsd.exam;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class ClientDemo {
+    public static void main(String[] args) {
+        // Using XML Configuration
+        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        
+        Employee employee = (Employee) context.getBean("employee");
+        System.out.println(employee);
+
+        Course course = (Course) context.getBean("course");
+        System.out.println(course);
+
+        // Using Java Configuration
+        // Uncomment below for Java Config
+        /*
+        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        Employee employee = context.getBean(Employee.class);
+        Course course = context.getBean(Course.class);
+        
+        System.out.println(employee);
+        System.out.println(course);
+        */
+    }
+}
